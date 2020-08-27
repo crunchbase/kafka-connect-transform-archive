@@ -11,6 +11,10 @@
 The Archive transformation is used to help preserve all of the data for a message when archived to S3.
 
 
+### CB PATCH
+
+Our patch is to handle [schema registry](https://docs.confluent.io/1.0/schema-registry/docs/intro.html) changes. The original code initialze the schema every time the message comes in and it will end up with each flush will only contains 1 record. 
+We use the cached schema and allocate the records in batches to sink correctly.
 
 
 ### Note
